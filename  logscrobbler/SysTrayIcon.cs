@@ -27,7 +27,7 @@ namespace LogScrobbler
 		{
 			trayIcon = new NotifyIcon();
 			sysTrayMenu = new ContextMenu(InitializeMenu());
-			
+
 			trayIcon.DoubleClick += TrayIconDoubleClick;
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysTrayIcon));
 			trayIcon.Icon = (Icon)resources.GetObject("ls");
@@ -46,8 +46,9 @@ namespace LogScrobbler
 		private MenuItem[] InitializeMenu()
 		{
 			MenuItem[] menu = new MenuItem[] {
+				new MenuItem("Open", menuOpenClick),
 				new MenuItem("About", menuAboutClick),
-				new MenuItem("Exit", menuExitClick)
+					new MenuItem("Exit", menuExitClick)
 			};
 			return menu;
 		}
@@ -90,6 +91,17 @@ namespace LogScrobbler
 			Application.Exit();
 		}
 		
+		private void menuOpenClick(object sender, EventArgs e)
+		{
+			try
+			{
+				form.ShowDialog();
+			}
+			catch
+			{
+				
+			}
+		}
 		private void TrayIconDoubleClick(object sender, EventArgs e)
 		{
 			try
@@ -101,6 +113,7 @@ namespace LogScrobbler
 				
 			}
 		}
+
 		#endregion
 	}
 }

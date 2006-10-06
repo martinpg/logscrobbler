@@ -36,7 +36,7 @@ namespace LogScrobbler
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.button1 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,7 +48,6 @@ namespace LogScrobbler
 			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.label4 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -173,14 +172,14 @@ namespace LogScrobbler
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
-			this.Text = "LogScrobbler";
+			this.Text = "LogScrobbler 0.4";
 			this.Load += new System.EventHandler(this.Form1Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.LinkLabel linkLabel1;
