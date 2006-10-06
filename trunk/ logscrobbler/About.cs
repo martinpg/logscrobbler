@@ -47,6 +47,14 @@ namespace LogScrobbler
 		{
 			linkLabel2.Links.Remove(linkLabel2.Links[0]);
         	linkLabel2.Links.Add(0, linkLabel2.Text.Length, "http://www.watchmefreak.com/");
+        	linkLabel1.Links.Remove(linkLabel1.Links[0]);
+        	linkLabel1.Links.Add(0, linkLabel1.Text.Length, "http://www.last.fm/user/kernelsandirs");
+		}
+		
+		void LinkLabel1LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+		{
+			ProcessStartInfo sInfo = new ProcessStartInfo(e.Link.LinkData.ToString());  
+       		Process.Start(sInfo);
 		}
 	}
 }
