@@ -111,8 +111,9 @@ namespace LogScrobbler
 					track.AlbumName = itemRow.SubItems[2].Text;
 					track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
 					track.TimePlayed = itemRow.SubItems[4].Text;
+					
 				}
-				MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
+				//MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
 				AS.SubmitTrack(track);
 			}
 			
@@ -225,7 +226,7 @@ namespace LogScrobbler
 						item.SubItems.Add(fields[2]);
 						item.SubItems.Add(fields[1]);
 						item.SubItems.Add(fields[4]);
-						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToString("yyyy-MM-dd HH:mm:ss"));
+						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss"));
 					}
 					//MessageBox.Show(track.ArtistName + " " +track.AlbumName+ " " +track.TrackName+ " " +track.TrackLength+ " " + track.TimePlayed);
 				}
