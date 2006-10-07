@@ -56,6 +56,7 @@ namespace LogScrobbler
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -191,7 +192,8 @@ namespace LogScrobbler
 									this.columnHeader1,
 									this.columnHeader2,
 									this.columnHeader3,
-									this.columnHeader4});
+									this.columnHeader4,
+									this.columnHeader5});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.listView1.Location = new System.Drawing.Point(0, -86);
 			this.listView1.Name = "listView1";
@@ -218,8 +220,14 @@ namespace LogScrobbler
 			// 
 			// columnHeader4
 			// 
-			this.columnHeader4.Text = "Played At";
-			this.columnHeader4.Width = 160;
+			this.columnHeader4.DisplayIndex = 4;
+			this.columnHeader4.Text = "Length";
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.DisplayIndex = 3;
+			this.columnHeader5.Text = "Played At";
+			this.columnHeader5.Width = 160;
 			// 
 			// Form1
 			// 
@@ -249,6 +257,7 @@ namespace LogScrobbler
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ColumnHeader columnHeader5;
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
