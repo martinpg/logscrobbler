@@ -74,6 +74,7 @@ namespace LogScrobbler
 			textBox1.Text = openFileDialog1.FileName;
 			checkReq();
 			checkForFile();
+			listView1.Items.Clear();
 			getList();
 		}
 		
@@ -90,17 +91,32 @@ namespace LogScrobbler
 		
 		void Button1Click(object sender, System.EventArgs e)
 		{
+
 			Track track = new Track();
 			AudioscrobblerRequest AS = new AudioscrobblerRequest();
 			AudioscrobblerException AE = new AudioscrobblerException();
 			AS.Username = textBox2.Text.ToString();
 			AS.Password = textBox3.Text.ToString();
-			string FILELINE;
-			string[] fields;
-			string trackStatus = "";
+			//string FILELINE;
+			//string[] fields;
+			//string trackStatus = "";
 			StreamReader log = new StreamReader(textBox1.Text.ToString());
-
-			while ((FILELINE = log.ReadLine()) != null)
+			
+			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+			{
+				for( int counter = 0; counter < itemRow.SubItems.Count; counter++ )
+				{
+					track.ArtistName = itemRow.SubItems[0].Text;
+					track.TrackName = itemRow.SubItems[1].Text;
+					track.AlbumName = itemRow.SubItems[2].Text;
+					track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
+					track.TimePlayed = itemRow.SubItems[4].Text;
+				}
+				MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
+				AS.SubmitTrack(track);
+			}
+			
+			/*while ((FILELINE = log.ReadLine()) != null)
 			{
 				fields = FILELINE.Split('\t');
 				Regex regex = new Regex("#");
@@ -110,19 +126,17 @@ namespace LogScrobbler
 					track.TrackName = fields[2];
 					trackStatus = fields[5];
 					track.TrackLength = Convert.ToInt32(fields[4]);
-					//track.TimePlayed = fields[6];
 					track.TimePlayed = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToString("yyyy-MM-dd HH:mm:ss");
-					//MessageBox.Show(track.ArtistName + " " +track.AlbumName+ " " +track.TrackName+ " " +track.TrackLength+ " " + track.TimePlayed);
 				}
 				if(trackStatus == "L" && track.ArtistName != ""  && track.TrackName != "" && track.TrackLength > 0 && track.TimePlayed != "") {
-					//MessageBox.Show(trackStatus + " " + track.ArtistName + " " +track.AlbumName+ " " +track.TrackName+ " " +track.TrackLength+ " " + track.TimePlayed);
-					AS.SubmitTrack(track);
+					//AS.SubmitTrack(track);
 				}
-			}
+			}*/
 			MessageBox.Show("Complete.");
 			log.Close();
 			if(checkBox1.Checked) {
 				File.Delete(textBox1.Text.ToString());
+				listView1.Items.Clear();
 			}
 			saveSettings();
 			checkForFile();
@@ -177,9 +191,11 @@ namespace LogScrobbler
 				button1.Enabled = true;
 				button3.Enabled = true;
 				label4.Text = "";
+				listView1.Items.Clear();
+				getList();
 			} else {
 				button1.Enabled = false;
-				//button3.Enabled = false;
+				button3.Enabled = false;
 				label4.Text = "scrobbler log not found";
 			}
 			
@@ -208,6 +224,7 @@ namespace LogScrobbler
 						item.Checked = true;
 						item.SubItems.Add(fields[2]);
 						item.SubItems.Add(fields[1]);
+						item.SubItems.Add(fields[4]);
 						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToString("yyyy-MM-dd HH:mm:ss"));
 					}
 					//MessageBox.Show(track.ArtistName + " " +track.AlbumName+ " " +track.TrackName+ " " +track.TrackLength+ " " + track.TimePlayed);
