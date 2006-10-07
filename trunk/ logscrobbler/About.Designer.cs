@@ -93,7 +93,7 @@ namespace LogScrobbler
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(53, 23);
 			this.label4.TabIndex = 5;
-			this.label4.Text = "0.5";
+			this.label4.Text = "0.6";
 			// 
 			// linkLabel2
 			// 
@@ -159,7 +159,7 @@ namespace LogScrobbler
 			this.Controls.Add(this.button1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "About";
-			this.Text = "About LogScrobbler 0.5";
+			this.Text = "About LogScrobbler 0.6";
 			this.Load += new System.EventHandler(this.AboutLoad);
 			this.ResumeLayout(false);
 		}
