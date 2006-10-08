@@ -24,9 +24,7 @@ namespace LogScrobbler
 	{
 		public Form1()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
+
 			InitializeComponent();
 			try{
 
@@ -49,19 +47,22 @@ namespace LogScrobbler
 					if(count == 3) {
 						checkBox1.Checked = Convert.ToBoolean(fields[1]);
 					}
+					if(count == 4) {
+						checkBox2.Checked = Convert.ToBoolean(fields[1]);
+					}
 					count++;
 
 					
 				}
+				sett.Close();
 				checkReq();
+				
 			}
 			catch
 			{
 				
 			}
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+
 		}
 
 		void Button2Click(object sender, System.EventArgs e)
@@ -97,10 +98,17 @@ namespace LogScrobbler
 			AudioscrobblerException AE = new AudioscrobblerException();
 			AS.Username = textBox2.Text.ToString();
 			AS.Password = textBox3.Text.ToString();
-			//string FILELINE;
-			//string[] fields;
-			//string trackStatus = "";
-			StreamReader log = new StreamReader(textBox1.Text.ToString());
+			int countChecked =0;
+			try
+			{
+			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+			{
+				countChecked++;
+			}
+
+			double stepSize = 0;
+			stepSize = 100 / countChecked;
+			progressBar1.Step = Convert.ToInt32(stepSize);
 			
 			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
 			{
@@ -114,33 +122,26 @@ namespace LogScrobbler
 					
 				}
 				//MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
+				progressBar1.Value = progressBar1.Value + Convert.ToInt32(stepSize);
 				AS.SubmitTrack(track);
 			}
-			
-			/*while ((FILELINE = log.ReadLine()) != null)
-			{
-				fields = FILELINE.Split('\t');
-				Regex regex = new Regex("#");
-				if(!regex.IsMatch(fields[0])) {
-					track.ArtistName = fields[0];
-					track.AlbumName = fields[1];
-					track.TrackName = fields[2];
-					trackStatus = fields[5];
-					track.TrackLength = Convert.ToInt32(fields[4]);
-					track.TimePlayed = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToString("yyyy-MM-dd HH:mm:ss");
-				}
-				if(trackStatus == "L" && track.ArtistName != ""  && track.TrackName != "" && track.TrackLength > 0 && track.TimePlayed != "") {
-					//AS.SubmitTrack(track);
-				}
-			}*/
-			MessageBox.Show("Complete.");
-			log.Close();
+
+			MessageBox.Show("Sync Complete.");
 			if(checkBox1.Checked) {
 				File.Delete(textBox1.Text.ToString());
 				listView1.Items.Clear();
 			}
+			if(checkBox2.Checked) {
+				Application.Exit();
+			}
+			}
+			catch
+			{
+				MessageBox.Show("Nothing to sync");
+			}
 			saveSettings();
 			checkForFile();
+			progressBar1.Value = 0;
 		}
 		
 
@@ -154,6 +155,8 @@ namespace LogScrobbler
 			sw.Write("Path=" + textBox1.Text.ToString());
 			sw.Write("\r\n");
 			sw.Write("Delete=" + checkBox1.Checked.ToString());
+			sw.Write("\r\n");
+			sw.Write("Exit=" + checkBox2.Checked.ToString());
 			sw.Close();
 		}
 		
@@ -213,13 +216,7 @@ namespace LogScrobbler
 				fields = FILELINE.Split('\t');
 				Regex regex = new Regex("#");
 				if(!regex.IsMatch(fields[0])) {
-					
-					//track.ArtistName = fields[0];
-					//track.AlbumName = fields[1];
-					//track.TrackName = fields[2];
 					trackStatus = fields[5];
-					//track.TrackLength = Convert.ToInt32(fields[4]);
-					//track.TimePlayed = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToString("yyyy-MM-dd HH:mm:ss");
 					if(trackStatus == "L") {
 						ListViewItem item = listView1.Items.Add(fields[0]);
 						item.Checked = true;
@@ -228,14 +225,14 @@ namespace LogScrobbler
 						item.SubItems.Add(fields[4]);
 						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss"));
 					}
-					//MessageBox.Show(track.ArtistName + " " +track.AlbumName+ " " +track.TrackName+ " " +track.TrackLength+ " " + track.TimePlayed);
 				}
 			}
+			log.Close();
 		}
 		
 		void Button3Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(650, 518);
+			this.Size = new System.Drawing.Size(650, 600);
 			listView1.Items.Clear();
 			listView1.Visible = true;
 			getList();
@@ -243,9 +240,10 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 219);
+			this.Size = new System.Drawing.Size(365, 265);
 			listView1.Visible = false;
 		}
+
 	}
 	
 	public class Track : IAudioscrobblerTrack

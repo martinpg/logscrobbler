@@ -21,13 +21,12 @@ namespace LogScrobbler
 		About aboutform = new About();
 		private System.Windows.Forms.NotifyIcon trayIcon;
 		private System.Windows.Forms.ContextMenu sysTrayMenu;
-		
+
 		#region Initialize icon and menu
 		public SysTrayIcon()
 		{
 			trayIcon = new NotifyIcon();
 			sysTrayMenu = new ContextMenu(InitializeMenu());
-
 			trayIcon.DoubleClick += TrayIconDoubleClick;
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysTrayIcon));
 			trayIcon.Icon = (Icon)resources.GetObject("ls");
@@ -42,7 +41,7 @@ namespace LogScrobbler
 				
 			}
 		}
-		
+	
 		private MenuItem[] InitializeMenu()
 		{
 			MenuItem[] menu = new MenuItem[] {
@@ -82,7 +81,6 @@ namespace LogScrobbler
 		#region Event Handlers
 		private void menuAboutClick(object sender, EventArgs e)
 		{
-			//MessageBox.Show("LogScrobbler By Tim Geiges, V 0.3\n\rhttp://www.watchmefreak.com");
 			aboutform.ShowDialog();
 		}
 		
@@ -113,6 +111,7 @@ namespace LogScrobbler
 				
 			}
 		}
+
 
 		#endregion
 	}
