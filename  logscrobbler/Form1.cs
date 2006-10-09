@@ -122,8 +122,8 @@ namespace LogScrobbler
 					
 				}
 				//MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
-				progressBar1.Value = progressBar1.Value + Convert.ToInt32(stepSize);
 				AS.SubmitTrack(track);
+				progressBar1.Value = progressBar1.Value + Convert.ToInt32(stepSize);
 			}
 
 			MessageBox.Show("Sync Complete.");
@@ -240,7 +240,7 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 265);
+			this.Size = new System.Drawing.Size(365, 280);
 			listView1.Visible = false;
 		}
 

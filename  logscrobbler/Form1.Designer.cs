@@ -198,7 +198,7 @@ namespace LogScrobbler
 									this.columnHeader4,
 									this.columnHeader5});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.listView1.Location = new System.Drawing.Point(0, -70);
+			this.listView1.Location = new System.Drawing.Point(0, -55);
 			this.listView1.Name = "listView1";
 			this.listView1.Size = new System.Drawing.Size(359, 303);
 			this.listView1.TabIndex = 14;
@@ -253,7 +253,7 @@ namespace LogScrobbler
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(359, 233);
+			this.ClientSize = new System.Drawing.Size(359, 248);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
@@ -275,7 +275,7 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.6";
+			this.Text = "LogScrobbler 0.7";
 			this.Load += new System.EventHandler(this.Form1Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
