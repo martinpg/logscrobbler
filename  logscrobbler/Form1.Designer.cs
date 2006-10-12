@@ -61,7 +61,6 @@ namespace LogScrobbler
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -271,20 +270,12 @@ namespace LogScrobbler
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
-			// label5
-			// 
-			this.label5.Location = new System.Drawing.Point(444, 200);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(333, 23);
-			this.label5.TabIndex = 19;
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(359, 258);
-			this.Controls.Add(this.label5);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
@@ -313,7 +304,6 @@ namespace LogScrobbler
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.ProgressBar progressBar1;
