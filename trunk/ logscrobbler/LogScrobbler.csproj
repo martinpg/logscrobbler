@@ -69,6 +69,13 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="MyLastTen.Designer.cs">
+      <DependentUpon>MyLastTen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyLastTen.cs" />
+    <EmbeddedResource Include="MyLastTen.resx">
+      <DependentUpon>MyLastTen.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
 </Project>

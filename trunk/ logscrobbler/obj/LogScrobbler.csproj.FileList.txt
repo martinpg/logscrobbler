@@ -15,3 +15,4 @@ obj\Release\LogScrobbler.Form1.resources
 obj\Release\LogScrobbler.csproj.GenerateResource.Cache
 obj\Release\LogScrobbler.exe
 obj\Release\LogScrobbler.About.resources
+obj\Release\LogScrobbler.MyLastTen.resources

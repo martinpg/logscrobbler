@@ -59,6 +59,9 @@ namespace LogScrobbler
 			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -198,7 +201,7 @@ namespace LogScrobbler
 									this.columnHeader4,
 									this.columnHeader5});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.listView1.Location = new System.Drawing.Point(0, -55);
+			this.listView1.Location = new System.Drawing.Point(0, -45);
 			this.listView1.Name = "listView1";
 			this.listView1.Size = new System.Drawing.Size(359, 303);
 			this.listView1.TabIndex = 14;
@@ -248,12 +251,40 @@ namespace LogScrobbler
 			this.progressBar1.Size = new System.Drawing.Size(335, 23);
 			this.progressBar1.TabIndex = 16;
 			// 
+			// button5
+			// 
+			this.button5.Location = new System.Drawing.Point(202, 229);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(143, 23);
+			this.button5.TabIndex = 17;
+			this.button5.Text = "Shift After Last Played";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(10, 229);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(186, 23);
+			this.button6.TabIndex = 18;
+			this.button6.Text = "Show My Last 10 From Last.Fm";
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
+			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(444, 200);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(333, 23);
+			this.label5.TabIndex = 19;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(359, 248);
+			this.ClientSize = new System.Drawing.Size(359, 258);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
@@ -270,6 +301,8 @@ namespace LogScrobbler
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.checkBox2);
 			this.Controls.Add(this.progressBar1);
+			this.Controls.Add(this.button5);
+			this.Controls.Add(this.button6);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -280,6 +313,9 @@ namespace LogScrobbler
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.ColumnHeader columnHeader5;
