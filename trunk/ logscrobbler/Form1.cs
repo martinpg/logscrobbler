@@ -138,7 +138,7 @@ namespace LogScrobbler
 			}
 			catch
 			{
-				MessageBox.Show("Nothing to sync");
+				MessageBox.Show("Nothing to sync, or there was an error connecting to Last.fm");
 			}
 			saveSettings();
 			checkForFile();
@@ -280,7 +280,7 @@ namespace LogScrobbler
 								lastEntry = lastEntry.Replace("</pubDate>","");
 								lastEntry = lastEntry.Replace(lastEntry.Substring(lastEntry.Length-5,5),"");
 								lastEntry = lastEntry.Trim();
-								label5.Text = lastEntry;
+								MessageBox.Show(lastEntry);
 							}
 						}
 					}
