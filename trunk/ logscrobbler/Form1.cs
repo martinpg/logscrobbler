@@ -25,7 +25,7 @@ namespace LogScrobbler
 	{
 		public Form1()
 		{
-
+ 
 			InitializeComponent();
 			try{
 
