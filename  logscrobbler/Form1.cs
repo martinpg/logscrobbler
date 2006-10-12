@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Audioscrobbler.NET;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Net;
 
 namespace LogScrobbler
 {
@@ -101,39 +102,39 @@ namespace LogScrobbler
 			int countChecked =0;
 			try
 			{
-			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
-			{
-				countChecked++;
-			}
-
-			double stepSize = 0;
-			stepSize = 100 / countChecked;
-			progressBar1.Step = Convert.ToInt32(stepSize);
-			
-			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
-			{
-				for( int counter = 0; counter < itemRow.SubItems.Count; counter++ )
+				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
 				{
-					track.ArtistName = itemRow.SubItems[0].Text;
-					track.TrackName = itemRow.SubItems[1].Text;
-					track.AlbumName = itemRow.SubItems[2].Text;
-					track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
-					track.TimePlayed = itemRow.SubItems[4].Text;
-					
+					countChecked++;
 				}
-				//MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
-				AS.SubmitTrack(track);
-				progressBar1.Value = progressBar1.Value + Convert.ToInt32(stepSize);
-			}
 
-			MessageBox.Show("Sync Complete.");
-			if(checkBox1.Checked) {
-				File.Delete(textBox1.Text.ToString());
-				listView1.Items.Clear();
-			}
-			if(checkBox2.Checked) {
-				Application.Exit();
-			}
+				double stepSize = 0;
+				stepSize = 100 / countChecked;
+				progressBar1.Step = Convert.ToInt32(stepSize);
+				
+				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+				{
+					for( int counter = 0; counter < itemRow.SubItems.Count; counter++ )
+					{
+						track.ArtistName = itemRow.SubItems[0].Text;
+						track.TrackName = itemRow.SubItems[1].Text;
+						track.AlbumName = itemRow.SubItems[2].Text;
+						track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
+						track.TimePlayed = itemRow.SubItems[4].Text;
+						
+					}
+					//MessageBox.Show(track.ArtistName + " " +track.TrackName + " " +track.AlbumName + " " +track.TrackLength + " " + track.TimePlayed);
+					AS.SubmitTrack(track);
+					progressBar1.Value = progressBar1.Value + Convert.ToInt32(stepSize);
+				}
+
+				MessageBox.Show("Sync Complete.");
+				if(checkBox1.Checked) {
+					File.Delete(textBox1.Text.ToString());
+					listView1.Items.Clear();
+				}
+				if(checkBox2.Checked) {
+					Application.Exit();
+				}
 			}
 			catch
 			{
@@ -240,10 +241,58 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 280);
+			this.Size = new System.Drawing.Size(365, 290);
 			listView1.Visible = false;
 		}
 
+		
+		void Button6Click(object sender, System.EventArgs e)
+		{
+			MyLastTen lastTen = new MyLastTen();
+			lastTen.ShowDialog();
+		}
+		
+		void Button5Click(object sender, System.EventArgs e)
+		{
+			//Shift to after last played track.
+			try
+			{
+				//http://ws.audioscrobbler.com/1.0/user/kernelsandirs/recenttracks.rss
+				System.Net.WebClient Client = new WebClient();
+				Stream strm = Client.OpenRead("http://ws.audioscrobbler.com/1.0/user/" + textBox2.Text.ToString() + "/recenttracks.rss");
+				StreamReader sr = new StreamReader(strm);
+				string line;
+				string lastEntry = "";
+				string oktoGo = "";
+				do
+				{
+					line = sr.ReadLine();
+					Regex regex1 = new Regex("description");
+					if(regex1.IsMatch(line)) {
+						oktoGo = "OK";
+					}
+					
+					Regex regex = new Regex("pubDate");
+					if(lastEntry == "") {
+						if(regex.IsMatch(line)) {
+							if(oktoGo == "OK"){
+								lastEntry = line.Replace("<pubDate>","");
+								lastEntry = lastEntry.Replace("</pubDate>","");
+								lastEntry = lastEntry.Replace(lastEntry.Substring(lastEntry.Length-5,5),"");
+								lastEntry = lastEntry.Trim();
+								label5.Text = lastEntry;
+							}
+						}
+					}
+				}
+				while (line !=null);
+				strm.Close();
+			}
+			catch
+			{
+				
+			}
+		}
 	}
 	
 	public class Track : IAudioscrobblerTrack

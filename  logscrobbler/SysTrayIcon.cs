@@ -11,12 +11,14 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
 using Audioscrobbler;
 
 namespace LogScrobbler
 {
 	public sealed class SysTrayIcon
 	{
+		public string myuser;
 		Form1 form = new Form1();
 		About aboutform = new About();
 		private System.Windows.Forms.NotifyIcon trayIcon;
@@ -31,7 +33,7 @@ namespace LogScrobbler
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SysTrayIcon));
 			trayIcon.Icon = (Icon)resources.GetObject("ls");
 			trayIcon.ContextMenu = sysTrayMenu;
-			
+			GatherUser();
 			try
 			{
 				form.ShowDialog();
@@ -41,13 +43,14 @@ namespace LogScrobbler
 				
 			}
 		}
-	
+		
 		private MenuItem[] InitializeMenu()
 		{
 			MenuItem[] menu = new MenuItem[] {
 				new MenuItem("Open", menuOpenClick),
 				new MenuItem("About", menuAboutClick),
-					new MenuItem("Exit", menuExitClick)
+				new MenuItem("My Last.fm", menuLastClick),
+				new MenuItem("Exit", menuExitClick)
 			};
 			return menu;
 		}
@@ -89,6 +92,42 @@ namespace LogScrobbler
 			Application.Exit();
 		}
 		
+		public void GatherUser(){
+			try{
+
+				StreamReader sett = new StreamReader("c:\\LogScrobbler.txt");
+				string setting;
+				string[] fields;
+				int count = 0;
+				while ((setting = sett.ReadLine()) != null)
+				{
+					fields = setting.Split('=');
+					if(count == 0) {
+						myuser = fields[1];
+					}
+					count++;
+				}
+				sett.Close();
+				
+				
+			}
+			catch
+			{
+				
+			}
+		}
+		
+		
+		private void menuLastClick(object sender, EventArgs e)
+		{
+
+			ProcessStartInfo sInfo = new ProcessStartInfo("http://www.last.fm/user/"+myuser);
+			Process.Start(sInfo);
+
+			
+		}
+		
+
 		private void menuOpenClick(object sender, EventArgs e)
 		{
 			try
