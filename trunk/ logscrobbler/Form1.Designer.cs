@@ -76,6 +76,9 @@ namespace LogScrobbler
 			// 
 			// label1
 			// 
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label1.Location = new System.Drawing.Point(12, 69);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(57, 23);
@@ -101,6 +104,9 @@ namespace LogScrobbler
 			// 
 			// label2
 			// 
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label2.Location = new System.Drawing.Point(12, 15);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(75, 23);
@@ -109,6 +115,9 @@ namespace LogScrobbler
 			// 
 			// label3
 			// 
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label3.Location = new System.Drawing.Point(12, 42);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(57, 23);
@@ -136,7 +145,10 @@ namespace LogScrobbler
 			// 
 			// linkLabel1
 			// 
-			this.linkLabel1.Location = new System.Drawing.Point(12, 156);
+			this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabel1.LinkColor = System.Drawing.Color.Gainsboro;
+			this.linkLabel1.Location = new System.Drawing.Point(12, 149);
 			this.linkLabel1.Name = "linkLabel1";
 			this.linkLabel1.Size = new System.Drawing.Size(333, 21);
 			this.linkLabel1.TabIndex = 8;
@@ -146,14 +158,17 @@ namespace LogScrobbler
 			// 
 			// checkBox1
 			// 
+			this.checkBox1.BackColor = System.Drawing.Color.Transparent;
 			this.checkBox1.Checked = true;
 			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.checkBox1.Location = new System.Drawing.Point(75, 93);
 			this.checkBox1.Name = "checkBox1";
 			this.checkBox1.Size = new System.Drawing.Size(209, 24);
 			this.checkBox1.TabIndex = 9;
 			this.checkBox1.Text = "Delete log after upload.";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.UseVisualStyleBackColor = false;
 			// 
 			// openFileDialog1
 			// 
@@ -162,7 +177,8 @@ namespace LogScrobbler
 			// 
 			// label4
 			// 
-			this.label4.ForeColor = System.Drawing.Color.DarkRed;
+			this.label4.BackColor = System.Drawing.Color.Transparent;
+			this.label4.ForeColor = System.Drawing.Color.Yellow;
 			this.label4.Location = new System.Drawing.Point(47, 177);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(119, 20);
@@ -236,12 +252,15 @@ namespace LogScrobbler
 			// 
 			// checkBox2
 			// 
+			this.checkBox2.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.checkBox2.Location = new System.Drawing.Point(75, 123);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(209, 24);
 			this.checkBox2.TabIndex = 15;
 			this.checkBox2.Text = "Exit after processing";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.UseVisualStyleBackColor = false;
 			// 
 			// progressBar1
 			// 
@@ -266,7 +285,7 @@ namespace LogScrobbler
 			this.button6.Name = "button6";
 			this.button6.Size = new System.Drawing.Size(186, 23);
 			this.button6.TabIndex = 18;
-			this.button6.Text = "Show My Last 10 From Last.Fm";
+			this.button6.Text = "Show My Last Posts To Last.Fm";
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
@@ -275,6 +294,7 @@ namespace LogScrobbler
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(359, 258);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.button4);

@@ -45,10 +45,13 @@ namespace LogScrobbler
 			// 
 			// listView1
 			// 
+			this.listView1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listView1.BackgroundImage")));
+			this.listView1.BackgroundImageTiled = true;
 			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader1,
 									this.columnHeader2});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listView1.ForeColor = System.Drawing.SystemColors.Menu;
 			this.listView1.Location = new System.Drawing.Point(0, 0);
 			this.listView1.Name = "listView1";
 			this.listView1.Size = new System.Drawing.Size(431, 207);
@@ -84,9 +87,10 @@ namespace LogScrobbler
 			this.ClientSize = new System.Drawing.Size(431, 207);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.listView1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MyLastTen";
-			this.Text = "MyLastTen";
+			this.Text = "MyLastPosts";
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.Button button1;

@@ -287,13 +287,16 @@ namespace LogScrobbler
 								firstInlog = listView1.Items[0].SubItems[4].Text;
 								DateTime end = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(firstInlog));
 								long MinutesDiff = start.Ticks - end.Ticks;
-								MinutesDiff = (MinutesDiff / 10000000) / 60 + 3; 
-								
-								foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
-								{
-									DateTime listtime = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(itemRow.SubItems[4].Text));
-									listtime = listtime.AddMinutes(MinutesDiff);
-									itemRow.SubItems[4].Text = listtime.Year + "-" + listtime.Month + "-" + listtime.Day + " " + listtime.TimeOfDay;
+								MinutesDiff = (MinutesDiff / 10000000) / 60 + 3;
+								if(MinutesDiff > 0){
+									foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+									{
+										DateTime listtime = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(itemRow.SubItems[4].Text));
+										listtime = listtime.AddMinutes(MinutesDiff);
+										itemRow.SubItems[4].Text = listtime.Year + "-" + listtime.Month + "-" + listtime.Day + " " + listtime.TimeOfDay;
+									}
+								} else {
+									MessageBox.Show("Time of last played track is less than the first track in your list, Time-shift not needed");
 								}
 							}
 						}
