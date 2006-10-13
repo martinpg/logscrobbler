@@ -15,6 +15,8 @@ using Audioscrobbler.NET;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Net;
+using System.ComponentModel;
+
 
 namespace LogScrobbler
 {
@@ -25,7 +27,7 @@ namespace LogScrobbler
 	{
 		public Form1()
 		{
- 
+			
 			InitializeComponent();
 			try{
 
@@ -263,6 +265,7 @@ namespace LogScrobbler
 				StreamReader sr = new StreamReader(strm);
 				string line;
 				string lastEntry = "";
+				string firstInlog = "";
 				string oktoGo = "";
 				do
 				{
@@ -271,7 +274,6 @@ namespace LogScrobbler
 					if(regex1.IsMatch(line)) {
 						oktoGo = "OK";
 					}
-					
 					Regex regex = new Regex("pubDate");
 					if(lastEntry == "") {
 						if(regex.IsMatch(line)) {
@@ -280,7 +282,12 @@ namespace LogScrobbler
 								lastEntry = lastEntry.Replace("</pubDate>","");
 								lastEntry = lastEntry.Replace(lastEntry.Substring(lastEntry.Length-5,5),"");
 								lastEntry = lastEntry.Trim();
-								MessageBox.Show(lastEntry);
+								DateTime dt = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(lastEntry));
+								lastEntry = dt.Year + "-" + dt.Month + "-" + dt.Day + " " + dt.TimeOfDay.ToString();
+								firstInlog = listView1.Items[0].SubItems[4].Text;
+								//start = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(lastEntry)).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss");
+								//end = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(firstInlog)).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss");
+								//TimeSpan span = start.Subtract( end );
 							}
 						}
 					}
