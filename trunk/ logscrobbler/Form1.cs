@@ -267,6 +267,7 @@ namespace LogScrobbler
 				string lastEntry = "";
 				string firstInlog = "";
 				string oktoGo = "";
+				
 				do
 				{
 					line = sr.ReadLine();
@@ -282,12 +283,14 @@ namespace LogScrobbler
 								lastEntry = lastEntry.Replace("</pubDate>","");
 								lastEntry = lastEntry.Replace(lastEntry.Substring(lastEntry.Length-5,5),"");
 								lastEntry = lastEntry.Trim();
-								DateTime dt = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(lastEntry));
-								lastEntry = dt.Year + "-" + dt.Month + "-" + dt.Day + " " + dt.TimeOfDay.ToString();
+								DateTime start = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(lastEntry));
 								firstInlog = listView1.Items[0].SubItems[4].Text;
-								//start = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(lastEntry)).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss");
-								//end = (new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(firstInlog)).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss");
-								//TimeSpan span = start.Subtract( end );
+								DateTime end = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(firstInlog));
+								long MinutesDiff = start.Ticks - end.Ticks;
+								MinutesDiff = (MinutesDiff / 10000000) / 60 + 3; //have seconds now
+								//MessageBox.Show(MinutesDiff.ToString());
+								end = end.AddMinutes(MinutesDiff);
+								listView1.Items[0].SubItems[4].Text = end.Year + "-" + end.Month + "-" + end.Day + " " + end.TimeOfDay;
 							}
 						}
 					}
