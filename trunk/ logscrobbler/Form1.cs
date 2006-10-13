@@ -310,6 +310,11 @@ namespace LogScrobbler
 				
 			}
 		}
+		
+		void Button7Click(object sender, System.EventArgs e)
+		{
+			saveSettings();
+		}
 	}
 	
 	public class Track : IAudioscrobblerTrack

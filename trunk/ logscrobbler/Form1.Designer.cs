@@ -61,6 +61,7 @@ namespace LogScrobbler
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -289,6 +290,16 @@ namespace LogScrobbler
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(209, 124);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(136, 23);
+			this.button7.TabIndex = 19;
+			this.button7.Text = "Save Settings";
+			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,10 +321,11 @@ namespace LogScrobbler
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.checkBox2);
 			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.button5);
 			this.Controls.Add(this.button6);
+			this.Controls.Add(this.button7);
+			this.Controls.Add(this.checkBox2);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -324,6 +336,7 @@ namespace LogScrobbler
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.ProgressBar progressBar1;
