@@ -22,7 +22,9 @@ namespace LogScrobbler
 	/// </summary>
 	public partial class MyLastTen
 	{
+		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 		public string myuser;
+		public string swColor;
 		public MyLastTen()
 		{
 			
@@ -51,6 +53,9 @@ namespace LogScrobbler
 					if(count == 0) {
 						myuser = fields[1];
 					}
+					if(count == 5) {
+						swColor = fields[1];
+					}
 					count++;
 				}
 				sett.Close();
@@ -58,6 +63,13 @@ namespace LogScrobbler
 			catch
 			{
 				
+			}
+			if(swColor == "sw2") {
+				listView1.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.bg2");
+			} else {
+				listView1.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
 			}
 		}
 		
