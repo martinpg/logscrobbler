@@ -25,6 +25,7 @@ namespace LogScrobbler
 	/// </summary>
 	public partial class Form1
 	{
+		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 		public Form1()
 		{
 			
@@ -65,6 +66,8 @@ namespace LogScrobbler
 			{
 				
 			}
+			button8.BackgroundImage =
+            (System.Drawing.Bitmap)resources.GetObject("$this.sw1");
 
 		}
 
@@ -314,6 +317,16 @@ namespace LogScrobbler
 		void Button7Click(object sender, System.EventArgs e)
 		{
 			saveSettings();
+		}
+		
+
+		
+		void Button8Click(object sender, System.EventArgs e)
+		{
+			this.BackgroundImage =
+            (System.Drawing.Bitmap)resources.GetObject("$this.bg2");
+			button8.BackgroundImage =
+            (System.Drawing.Bitmap)resources.GetObject("$this.sw2");
 		}
 	}
 	
