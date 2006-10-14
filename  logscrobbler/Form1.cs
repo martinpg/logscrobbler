@@ -25,6 +25,7 @@ namespace LogScrobbler
 	/// </summary>
 	public partial class Form1
 	{
+		public string swColor;
 		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 		public Form1()
 		{
@@ -54,6 +55,9 @@ namespace LogScrobbler
 					if(count == 4) {
 						checkBox2.Checked = Convert.ToBoolean(fields[1]);
 					}
+					if(count == 5) {
+						swColor = fields[1];
+					}
 					count++;
 
 					
@@ -66,8 +70,19 @@ namespace LogScrobbler
 			{
 				
 			}
-			button8.BackgroundImage =
-            (System.Drawing.Bitmap)resources.GetObject("$this.sw1");
+			if(swColor == "sw2") {
+				button8.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.sw2");
+				this.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.bg2");
+				swColor = "sw2";
+			} else {
+				button8.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.sw1");
+				this.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
+				swColor = "sw1";
+			}
 
 		}
 
@@ -152,7 +167,6 @@ namespace LogScrobbler
 		
 
 		void saveSettings(){
-
 			StreamWriter sw = new StreamWriter("c:\\LogScrobbler.txt");
 			sw.Write("Username=" + textBox2.Text.ToString());
 			sw.Write("\r\n");
@@ -163,6 +177,8 @@ namespace LogScrobbler
 			sw.Write("Delete=" + checkBox1.Checked.ToString());
 			sw.Write("\r\n");
 			sw.Write("Exit=" + checkBox2.Checked.ToString());
+			sw.Write("\r\n");
+			sw.Write("Color=" + swColor.ToString());
 			sw.Close();
 		}
 		
@@ -323,10 +339,20 @@ namespace LogScrobbler
 		
 		void Button8Click(object sender, System.EventArgs e)
 		{
-			this.BackgroundImage =
-            (System.Drawing.Bitmap)resources.GetObject("$this.bg2");
-			button8.BackgroundImage =
-            (System.Drawing.Bitmap)resources.GetObject("$this.sw2");
+			if(swColor == "sw2") {
+				this.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
+				button8.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.sw1");
+				swColor = "sw1";
+			} else {
+				this.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.bg2");
+				button8.BackgroundImage =
+					(System.Drawing.Bitmap)resources.GetObject("$this.sw2");
+				swColor = "sw2";				
+			}
+			saveSettings();
 		}
 	}
 	

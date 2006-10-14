@@ -304,6 +304,7 @@ namespace LogScrobbler
 			// button8
 			// 
 			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button8.ForeColor = System.Drawing.Color.Gray;
 			this.button8.Location = new System.Drawing.Point(324, 12);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(21, 32);
@@ -343,7 +344,7 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.7";
+			this.Text = "LogScrobbler 0.8";
 			this.Load += new System.EventHandler(this.Form1Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

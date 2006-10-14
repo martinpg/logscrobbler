@@ -61,7 +61,9 @@ namespace LogScrobbler
 			// 
 			// label1
 			// 
+			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label1.Location = new System.Drawing.Point(63, 9);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(192, 42);
@@ -70,7 +72,9 @@ namespace LogScrobbler
 			// 
 			// label2
 			// 
+			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label2.Location = new System.Drawing.Point(12, 51);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(45, 23);
@@ -79,7 +83,9 @@ namespace LogScrobbler
 			// 
 			// label3
 			// 
+			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label3.Location = new System.Drawing.Point(12, 74);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(60, 23);
@@ -88,16 +94,20 @@ namespace LogScrobbler
 			// 
 			// label4
 			// 
+			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label4.Location = new System.Drawing.Point(71, 74);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(53, 23);
 			this.label4.TabIndex = 5;
-			this.label4.Text = "0.7";
+			this.label4.Text = "0.8";
 			// 
 			// linkLabel2
 			// 
+			this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabel2.Font = new System.Drawing.Font("Arial", 9F);
+			this.linkLabel2.LinkColor = System.Drawing.Color.LightGray;
 			this.linkLabel2.Location = new System.Drawing.Point(71, 98);
 			this.linkLabel2.Name = "linkLabel2";
 			this.linkLabel2.Size = new System.Drawing.Size(214, 23);
@@ -108,6 +118,8 @@ namespace LogScrobbler
 			// 
 			// label5
 			// 
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label5.Location = new System.Drawing.Point(12, 99);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(45, 23);
@@ -116,7 +128,9 @@ namespace LogScrobbler
 			// 
 			// label6
 			// 
+			this.label6.BackColor = System.Drawing.Color.Transparent;
 			this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label6.Location = new System.Drawing.Point(71, 51);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(100, 23);
@@ -125,6 +139,8 @@ namespace LogScrobbler
 			// 
 			// label7
 			// 
+			this.label7.BackColor = System.Drawing.Color.Transparent;
+			this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.label7.Location = new System.Drawing.Point(12, 122);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(60, 23);
@@ -133,7 +149,9 @@ namespace LogScrobbler
 			// 
 			// linkLabel1
 			// 
+			this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
 			this.linkLabel1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabel1.LinkColor = System.Drawing.Color.LightGray;
 			this.linkLabel1.Location = new System.Drawing.Point(71, 120);
 			this.linkLabel1.Name = "linkLabel1";
 			this.linkLabel1.Size = new System.Drawing.Size(238, 23);
@@ -146,6 +164,7 @@ namespace LogScrobbler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(297, 185);
 			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.label7);
@@ -157,9 +176,10 @@ namespace LogScrobbler
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "About";
-			this.Text = "About LogScrobbler 0.7";
+			this.Text = "About LogScrobbler 0.8";
 			this.Load += new System.EventHandler(this.AboutLoad);
 			this.ResumeLayout(false);
 		}
