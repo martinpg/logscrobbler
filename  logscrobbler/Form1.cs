@@ -275,7 +275,7 @@ namespace LogScrobbler
 		
 		void Button5Click(object sender, System.EventArgs e)
 		{
-			//Shift to after last played track.
+			// Shift to after last played track.
 			try
 			{
 				//http://ws.audioscrobbler.com/1.0/user/kernelsandirs/recenttracks.rss
