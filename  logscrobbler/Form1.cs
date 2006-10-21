@@ -232,6 +232,8 @@ namespace LogScrobbler
 			string FILELINE;
 			string[] fields;
 			string trackStatus = "";
+			int Tmin=0;
+			int Tsec=0;
 			StreamReader log = new StreamReader(textBox1.Text.ToString());
 			while ((FILELINE = log.ReadLine()) != null)
 			{
@@ -244,7 +246,9 @@ namespace LogScrobbler
 						item.Checked = true;
 						item.SubItems.Add(fields[2]);
 						item.SubItems.Add(fields[1]);
-						item.SubItems.Add(fields[4]);
+						Tmin = Convert.ToInt32(fields[4]) / 60;
+						Tsec = Convert.ToInt32(fields[4]) % 60;
+						item.SubItems.Add(Tmin + ":" + String.Format("{0:00}",Tsec));
 						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss"));
 					}
 				}
