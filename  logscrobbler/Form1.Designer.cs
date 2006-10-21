@@ -229,17 +229,17 @@ namespace LogScrobbler
 			// columnHeader1
 			// 
 			this.columnHeader1.Text = "Artist";
-			this.columnHeader1.Width = 160;
+			this.columnHeader1.Width = 150;
 			// 
 			// columnHeader2
 			// 
 			this.columnHeader2.Text = "Track";
-			this.columnHeader2.Width = 160;
+			this.columnHeader2.Width = 150;
 			// 
 			// columnHeader3
 			// 
 			this.columnHeader3.Text = "Album";
-			this.columnHeader3.Width = 160;
+			this.columnHeader3.Width = 140;
 			// 
 			// columnHeader4
 			// 
@@ -250,7 +250,7 @@ namespace LogScrobbler
 			// 
 			this.columnHeader5.DisplayIndex = 3;
 			this.columnHeader5.Text = "Played At";
-			this.columnHeader5.Width = 160;
+			this.columnHeader5.Width = 130;
 			// 
 			// checkBox2
 			// 
@@ -344,7 +344,7 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.8";
+			this.Text = "LogScrobbler 0.9";
 			this.Load += new System.EventHandler(this.Form1Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
