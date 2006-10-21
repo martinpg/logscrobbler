@@ -246,9 +246,10 @@ namespace LogScrobbler
 						item.Checked = true;
 						item.SubItems.Add(fields[2]);
 						item.SubItems.Add(fields[1]);
-						Tmin = Convert.ToInt32(fields[4]) / 60;
-						Tsec = Convert.ToInt32(fields[4]) % 60;
-						item.SubItems.Add(Tmin + ":" + String.Format("{0:00}",Tsec));
+						//Tmin = Convert.ToInt32(fields[4]) / 60;
+						//Tsec = Convert.ToInt32(fields[4]) % 60;
+						//item.SubItems.Add(Tmin + ":" + String.Format("{0:00}",Tsec));
+						item.SubItems.Add(fields[4]);
 						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss"));
 					}
 				}
