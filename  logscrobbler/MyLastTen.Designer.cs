@@ -41,6 +41,7 @@ namespace LogScrobbler
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// listView1
@@ -72,19 +73,30 @@ namespace LogScrobbler
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(145, 172);
+			this.button1.Location = new System.Drawing.Point(104, 172);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(140, 23);
+			this.button1.Size = new System.Drawing.Size(108, 23);
 			this.button1.TabIndex = 1;
 			this.button1.Text = "Reload";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(218, 172);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(108, 23);
+			this.button2.TabIndex = 2;
+			this.button2.Text = "Close";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// MyLastTen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(431, 207);
+			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.listView1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -93,6 +105,7 @@ namespace LogScrobbler
 			this.Text = "MyLastPosts";
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader1;

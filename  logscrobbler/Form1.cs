@@ -58,6 +58,9 @@ namespace LogScrobbler
 					if(count == 5) {
 						swColor = fields[1];
 					}
+					if(count == 6) {
+						checkBox3.Checked = Convert.ToBoolean(fields[1]);
+					}
 					count++;
 
 					
@@ -138,7 +141,11 @@ namespace LogScrobbler
 						track.ArtistName = itemRow.SubItems[0].Text;
 						track.TrackName = itemRow.SubItems[1].Text;
 						track.AlbumName = itemRow.SubItems[2].Text;
-						track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
+						//	track.TrackLength = Convert.ToInt32(itemRow.SubItems[3].Text);
+						string [] mins = new string[2];
+						char[] splitter  = {':'};
+						mins = itemRow.SubItems[3].Text.Split(splitter);
+						track.TrackLength = (Convert.ToInt32(mins[0]) * 60 + Convert.ToInt32(mins[1]));
 						track.TimePlayed = itemRow.SubItems[4].Text;
 						
 					}
@@ -179,6 +186,8 @@ namespace LogScrobbler
 			sw.Write("Exit=" + checkBox2.Checked.ToString());
 			sw.Write("\r\n");
 			sw.Write("Color=" + swColor.ToString());
+			sw.Write("\r\n");
+			sw.Write("ExitApp=" + checkBox3.Checked.ToString());
 			sw.Close();
 		}
 		
@@ -246,10 +255,10 @@ namespace LogScrobbler
 						item.Checked = true;
 						item.SubItems.Add(fields[2]);
 						item.SubItems.Add(fields[1]);
-						//Tmin = Convert.ToInt32(fields[4]) / 60;
-						//Tsec = Convert.ToInt32(fields[4]) % 60;
-						//item.SubItems.Add(Tmin + ":" + String.Format("{0:00}",Tsec));
-						item.SubItems.Add(fields[4]);
+						Tmin = Convert.ToInt32(fields[4]) / 60;
+						Tsec = Convert.ToInt32(fields[4]) % 60;
+						item.SubItems.Add(Tmin + ":" + String.Format("{0:00}",Tsec));
+						//item.SubItems.Add(fields[4]);
 						item.SubItems.Add((new DateTime(1970,1,1,0,0,0)).AddSeconds(Convert.ToDouble(fields[6])).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss"));
 					}
 				}
@@ -267,7 +276,7 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 290);
+			this.Size = new System.Drawing.Size(365, 295);
 			listView1.Visible = false;
 		}
 
@@ -355,9 +364,17 @@ namespace LogScrobbler
 					(System.Drawing.Bitmap)resources.GetObject("$this.bg2");
 				button8.BackgroundImage =
 					(System.Drawing.Bitmap)resources.GetObject("$this.sw2");
-				swColor = "sw2";				
+				swColor = "sw2";
 			}
 			saveSettings();
+		}
+		
+		void Form1FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+		{
+			if(checkBox3.Checked == true) {
+				saveSettings();
+				Application.Exit();
+			}
 		}
 	}
 	
