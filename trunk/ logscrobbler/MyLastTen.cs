@@ -143,5 +143,10 @@ namespace LogScrobbler
 			listView1.Items.Clear(); 
 			getMyLastTen();
 		}
+		
+		void Button2Click(object sender, System.EventArgs e)
+		{
+			Close();
+		}
 	}
 }
