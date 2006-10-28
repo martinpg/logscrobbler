@@ -276,7 +276,7 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 295);
+			this.Size = new System.Drawing.Size(365, 300);
 			listView1.Visible = false;
 		}
 
