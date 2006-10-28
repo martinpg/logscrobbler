@@ -42,7 +42,7 @@ namespace LogScrobbler
 		
 		public void GatherUser(){
 			try{
-
+				
 				StreamReader sett = new StreamReader("c:\\LogScrobbler.txt");
 				string setting;
 				string[] fields;
@@ -78,6 +78,7 @@ namespace LogScrobbler
 			{
 				//http://ws.audioscrobbler.com/1.0/user/kernelsandirs/recenttracks.rss
 				System.Net.WebClient Client = new WebClient();
+				//Client.Proxy = new WebProxy();
 				Stream strm = Client.OpenRead("http://ws.audioscrobbler.com/1.0/user/" + myuser + "/recenttracks.rss");
 				StreamReader sr = new StreamReader(strm);
 				string line;
@@ -140,7 +141,7 @@ namespace LogScrobbler
 		
 		void Button1Click(object sender, System.EventArgs e)
 		{
-			listView1.Items.Clear(); 
+			listView1.Items.Clear();
 			getMyLastTen();
 		}
 		
