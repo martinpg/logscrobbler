@@ -177,7 +177,7 @@ namespace LogScrobbler
 			// 
 			// openFileDialog1
 			// 
-			this.openFileDialog1.Filter = "Scrobbler Log (.scrobbler.log)|.scrobbler.log";
+			this.openFileDialog1.Filter = "Scrobbler Log (.scrobbler.log)|.scrobbler*.*log";
 			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1FileOk);
 			// 
 			// label4
