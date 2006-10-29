@@ -86,9 +86,61 @@ namespace LogScrobbler
 					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
 				swColor = "sw1";
 			}
-
+			getMyImage();
 		}
 
+		void getMyImage()
+		{
+			try
+			{
+				System.Net.WebClient Client = new WebClient();
+				Stream strm = Client.OpenRead("http://www.last.fm/user/"+ textBox2.Text +"/");
+				StreamReader sr = new StreamReader(strm);
+				string line;
+				string oktoGo = "";
+				string oktoStop = "";
+				string title = "";
+				do
+				{
+					line = sr.ReadLine();
+					Regex regex1 = new Regex("avatarPanel");
+					if(regex1.IsMatch(line)) {
+						oktoGo = "OK";
+					}
+					
+					Regex regex2= new Regex("static.last.fm/avatar");
+					if(regex2.IsMatch(line)) {
+						if (oktoGo == "OK" && oktoStop != "OK"){
+							string match = ".*<img src=\"";
+							line = Regex.Replace(line,match,"");
+							string match2 = "\" alt=\".*";
+							line = Regex.Replace(line,match2,"");
+							title = line.Replace("<img src=\"http://static.last.fm/avatar/","");
+							title = title.Trim();
+							pictureBox1.WaitOnLoad = false;
+							pictureBox1.LoadAsync(@title);
+						}
+					}
+					
+					Regex regexstp = new Regex("</a>");
+					if(regexstp.IsMatch(line)) {
+						if (oktoGo == "OK"){
+							oktoStop = "OK";
+						}
+					}
+				}
+				while (line !=null);
+				strm.Close();
+				
+
+			}
+			catch
+			{
+				
+			}
+			
+		}
+		
 		void Button2Click(object sender, System.EventArgs e)
 		{
 			openFileDialog1.ShowDialog();
@@ -189,6 +241,7 @@ namespace LogScrobbler
 			sw.Write("\r\n");
 			sw.Write("ExitApp=" + checkBox3.Checked.ToString());
 			sw.Close();
+			getMyImage();
 		}
 		
 		void LinkLabel1LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
@@ -376,8 +429,14 @@ namespace LogScrobbler
 				Application.Exit();
 			}
 		}
+		
+		void PictureBox1Click(object sender, System.EventArgs e)
+		{
+			ProcessStartInfo sInfo = new ProcessStartInfo(linkLabel1.Text.ToString());
+			Process.Start(sInfo);
+		}
 	}
-	
+
 	public class Track : IAudioscrobblerTrack
 	{
 		string a_text = "";

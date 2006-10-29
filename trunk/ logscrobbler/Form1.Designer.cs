@@ -64,6 +64,8 @@ namespace LogScrobbler
 			this.button7 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -82,7 +84,7 @@ namespace LogScrobbler
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label1.Location = new System.Drawing.Point(12, 69);
+			this.label1.Location = new System.Drawing.Point(5, 69);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(57, 23);
 			this.label1.TabIndex = 1;
@@ -90,16 +92,16 @@ namespace LogScrobbler
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(75, 66);
+			this.textBox1.Location = new System.Drawing.Point(61, 66);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(209, 21);
+			this.textBox1.Size = new System.Drawing.Size(152, 21);
 			this.textBox1.TabIndex = 2;
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(290, 66);
+			this.button2.Location = new System.Drawing.Point(219, 67);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(55, 21);
+			this.button2.Size = new System.Drawing.Size(54, 21);
 			this.button2.TabIndex = 3;
 			this.button2.Text = "Browse";
 			this.button2.UseVisualStyleBackColor = true;
@@ -110,7 +112,7 @@ namespace LogScrobbler
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label2.Location = new System.Drawing.Point(12, 15);
+			this.label2.Location = new System.Drawing.Point(5, 15);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(75, 23);
 			this.label2.TabIndex = 4;
@@ -121,7 +123,7 @@ namespace LogScrobbler
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.label3.Location = new System.Drawing.Point(12, 42);
+			this.label3.Location = new System.Drawing.Point(5, 42);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(57, 23);
 			this.label3.TabIndex = 5;
@@ -129,9 +131,9 @@ namespace LogScrobbler
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(75, 12);
+			this.textBox2.Location = new System.Drawing.Point(61, 12);
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(209, 21);
+			this.textBox2.Size = new System.Drawing.Size(212, 21);
 			this.textBox2.TabIndex = 6;
 			this.textBox2.Text = "kernelsandirs";
 			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
@@ -139,10 +141,10 @@ namespace LogScrobbler
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(75, 39);
+			this.textBox3.Location = new System.Drawing.Point(61, 39);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.PasswordChar = '*';
-			this.textBox3.Size = new System.Drawing.Size(209, 21);
+			this.textBox3.Size = new System.Drawing.Size(212, 21);
 			this.textBox3.TabIndex = 7;
 			this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox3KeyDown);
 			// 
@@ -306,7 +308,7 @@ namespace LogScrobbler
 			// 
 			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button8.ForeColor = System.Drawing.Color.Gray;
-			this.button8.Location = new System.Drawing.Point(324, 12);
+			this.button8.Location = new System.Drawing.Point(334, 12);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(21, 32);
 			this.button8.TabIndex = 20;
@@ -324,6 +326,17 @@ namespace LogScrobbler
 			this.checkBox3.Text = "Clicking \"Close\" exits LogScrobbler";
 			this.checkBox3.UseVisualStyleBackColor = false;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+			this.pictureBox1.Location = new System.Drawing.Point(279, 12);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(49, 70);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 22;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.PictureBox1Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +344,7 @@ namespace LogScrobbler
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(359, 268);
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.button8);
 			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.button4);
@@ -357,12 +371,14 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.9";
+			this.Text = "LogScrobbler 0.11";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1FormClosed);
 			this.Load += new System.EventHandler(this.Form1Load);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.CheckBox checkBox3;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button button7;
