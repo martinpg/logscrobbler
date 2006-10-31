@@ -33,7 +33,7 @@ namespace LogScrobbler
 			InitializeComponent();
 			try{
 
-				StreamReader sett = new StreamReader("c:\\LogScrobbler.txt");
+				StreamReader sett = new StreamReader("LogScrobbler.txt");
 				string setting;
 				string[] fields;
 				int count = 0;
@@ -61,6 +61,12 @@ namespace LogScrobbler
 					if(count == 6) {
 						checkBox3.Checked = Convert.ToBoolean(fields[1]);
 					}
+					if(count == 7) {
+						checkBox4.Checked = Convert.ToBoolean(fields[1]);
+					}
+					if(count == 8) {
+						checkBox5.Checked = Convert.ToBoolean(fields[1]);
+					}
 					count++;
 
 					
@@ -86,7 +92,7 @@ namespace LogScrobbler
 					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
 				swColor = "sw1";
 			}
-			getMyImage();
+			
 		}
 
 		void getMyImage()
@@ -226,10 +232,14 @@ namespace LogScrobbler
 		
 
 		void saveSettings(){
-			StreamWriter sw = new StreamWriter("c:\\LogScrobbler.txt");
+			StreamWriter sw = new StreamWriter("LogScrobbler.txt");
 			sw.Write("Username=" + textBox2.Text.ToString());
 			sw.Write("\r\n");
-			sw.Write("Password=" + textBox3.Text.ToString());
+			if(checkBox5.Checked == true) {
+				sw.Write("Password=" + textBox3.Text.ToString());
+			} else {
+				sw.Write("Password=");
+			}
 			sw.Write("\r\n");
 			sw.Write("Path=" + textBox1.Text.ToString());
 			sw.Write("\r\n");
@@ -240,8 +250,14 @@ namespace LogScrobbler
 			sw.Write("Color=" + swColor.ToString());
 			sw.Write("\r\n");
 			sw.Write("ExitApp=" + checkBox3.Checked.ToString());
+			sw.Write("\r\n");
+			sw.Write("ShowAvatar=" + checkBox4.Checked.ToString());
+			sw.Write("\r\n");
+			sw.Write("SavePass=" + checkBox5.Checked.ToString());
 			sw.Close();
-			getMyImage();
+			if(checkBox4.Checked == true) {
+				getMyImage();
+			}
 		}
 		
 		void LinkLabel1LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
@@ -270,6 +286,9 @@ namespace LogScrobbler
 			linkLabel1.Links.Remove(linkLabel1.Links[0]);
 			linkLabel1.Links.Add(0, linkLabel1.Text.Length, "http://www.last.fm/user/"+textBox2.Text.ToString());
 			checkForFile();
+			if(checkBox4.Checked == true){
+				getMyImage();
+			}
 		}
 		
 		
