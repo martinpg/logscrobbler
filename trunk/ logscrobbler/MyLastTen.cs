@@ -43,7 +43,7 @@ namespace LogScrobbler
 		public void GatherUser(){
 			try{
 				
-				StreamReader sett = new StreamReader("c:\\LogScrobbler.txt");
+				StreamReader sett = new StreamReader("LogScrobbler.txt");
 				string setting;
 				string[] fields;
 				int count = 0;
