@@ -401,7 +401,7 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.12";
+			this.Text = "LogScrobbler 0.12b";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1FormClosed);
 			this.Load += new System.EventHandler(this.Form1Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
