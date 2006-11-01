@@ -386,7 +386,7 @@ namespace LogScrobbler
 								lastEntry = lastEntry.Replace(lastEntry.Substring(lastEntry.Length-5,5),"");
 								lastEntry = lastEntry.Trim();
 								DateTime start = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(lastEntry));
-								firstInlog = listView1.Items[0].SubItems[4].Text;
+								firstInlog = listView1.CheckedItems[0].SubItems[4].Text;
 								DateTime end = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(firstInlog));
 								long MinutesDiff = start.Ticks - end.Ticks;
 								MinutesDiff = (MinutesDiff / 10000000) / 60 + 3;
