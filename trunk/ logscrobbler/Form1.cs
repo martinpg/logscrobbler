@@ -92,6 +92,9 @@ namespace LogScrobbler
 					(System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
 				swColor = "sw1";
 			}
+			if(checkBox4.Checked == true){
+				getMyImage();
+			}
 			
 		}
 
@@ -255,9 +258,6 @@ namespace LogScrobbler
 			sw.Write("\r\n");
 			sw.Write("SavePass=" + checkBox5.Checked.ToString());
 			sw.Close();
-			if(checkBox4.Checked == true) {
-				getMyImage();
-			}
 		}
 		
 		void LinkLabel1LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
@@ -286,9 +286,6 @@ namespace LogScrobbler
 			linkLabel1.Links.Remove(linkLabel1.Links[0]);
 			linkLabel1.Links.Add(0, linkLabel1.Text.Length, "http://www.last.fm/user/"+textBox2.Text.ToString());
 			checkForFile();
-			if(checkBox4.Checked == true){
-				getMyImage();
-			}
 		}
 		
 		
