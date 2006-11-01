@@ -10,8 +10,9 @@ Email with any suggestions or feedback.
 ============================================
 
 Changelog:
-0.12b
+0.12c
 x fixed bug - if items are unchecked do not include them in the time shift.
++ added row colors, and unselected turn gray.
 
 0.12
 + Settings file LogScrobbler.txt should now be in app directory(not C: Let me know if this blows up)

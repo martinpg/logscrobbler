@@ -333,6 +333,19 @@ namespace LogScrobbler
 				}
 			}
 			log.Close();
+			int rowcolor=0;
+			int rc=0;
+			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.Items)
+			{
+				rowcolor++;
+				rc=rowcolor%2;
+				if(rc == 0){
+					itemRow.BackColor = System.Drawing.Color.FromArgb(234,234,240);
+				} else {
+					itemRow.BackColor = System.Drawing.Color.White;
+				}
+				
+			}
 		}
 		
 		void Button3Click(object sender, System.EventArgs e)
@@ -450,6 +463,19 @@ namespace LogScrobbler
 		{
 			ProcessStartInfo sInfo = new ProcessStartInfo(linkLabel1.Text.ToString());
 			Process.Start(sInfo);
+		}
+		
+		
+		void ListView1ItemChecked(object sender, System.Windows.Forms.ItemCheckedEventArgs e)
+		{
+			foreach (System.Windows.Forms.ListViewItem itemRow in listView1.Items)
+			{
+				if(itemRow.Checked == false) {
+					itemRow.ForeColor = System.Drawing.Color.Gray;
+				} else {
+					itemRow.ForeColor = System.Drawing.Color.DarkGreen;
+				}
+			}
 		}
 	}
 
