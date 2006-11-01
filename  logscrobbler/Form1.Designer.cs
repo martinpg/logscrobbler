@@ -223,6 +223,7 @@ namespace LogScrobbler
 									this.columnHeader4,
 									this.columnHeader5});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.listView1.FullRowSelect = true;
 			this.listView1.Location = new System.Drawing.Point(0, -35);
 			this.listView1.Name = "listView1";
 			this.listView1.Size = new System.Drawing.Size(359, 303);
@@ -230,6 +231,7 @@ namespace LogScrobbler
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
 			this.listView1.Visible = false;
+			this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ListView1ItemChecked);
 			// 
 			// columnHeader1
 			// 
