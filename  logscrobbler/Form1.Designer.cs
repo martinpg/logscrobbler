@@ -67,13 +67,15 @@ namespace LogScrobbler
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.checkBox4 = new System.Windows.Forms.CheckBox();
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label5 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button1
 			// 
 			this.button1.Enabled = false;
-			this.button1.Location = new System.Drawing.Point(290, 183);
+			this.button1.Location = new System.Drawing.Point(540, 183);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(55, 21);
 			this.button1.TabIndex = 0;
@@ -135,7 +137,7 @@ namespace LogScrobbler
 			// 
 			this.textBox2.Location = new System.Drawing.Point(61, 12);
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(212, 21);
+			this.textBox2.Size = new System.Drawing.Size(152, 21);
 			this.textBox2.TabIndex = 6;
 			this.textBox2.Text = "kernelsandirs";
 			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
@@ -153,11 +155,11 @@ namespace LogScrobbler
 			// linkLabel1
 			// 
 			this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-			this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.linkLabel1.LinkColor = System.Drawing.Color.Gainsboro;
-			this.linkLabel1.Location = new System.Drawing.Point(12, 162);
+			this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.linkLabel1.LinkColor = System.Drawing.Color.AliceBlue;
+			this.linkLabel1.Location = new System.Drawing.Point(5, 142);
 			this.linkLabel1.Name = "linkLabel1";
-			this.linkLabel1.Size = new System.Drawing.Size(333, 21);
+			this.linkLabel1.Size = new System.Drawing.Size(590, 21);
 			this.linkLabel1.TabIndex = 8;
 			this.linkLabel1.TabStop = true;
 			this.linkLabel1.Text = "http://www.last.fm/user/kernelsandirs";
@@ -170,7 +172,7 @@ namespace LogScrobbler
 			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.checkBox1.Location = new System.Drawing.Point(61, 88);
+			this.checkBox1.Location = new System.Drawing.Point(279, 7);
 			this.checkBox1.Name = "checkBox1";
 			this.checkBox1.Size = new System.Drawing.Size(209, 24);
 			this.checkBox1.TabIndex = 9;
@@ -186,7 +188,7 @@ namespace LogScrobbler
 			// 
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.ForeColor = System.Drawing.Color.Yellow;
-			this.label4.Location = new System.Drawing.Point(47, 187);
+			this.label4.Location = new System.Drawing.Point(286, 184);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(119, 20);
 			this.label4.TabIndex = 10;
@@ -194,7 +196,7 @@ namespace LogScrobbler
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(172, 183);
+			this.button3.Location = new System.Drawing.Point(422, 183);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(112, 21);
 			this.button3.TabIndex = 11;
@@ -226,7 +228,7 @@ namespace LogScrobbler
 			this.listView1.FullRowSelect = true;
 			this.listView1.Location = new System.Drawing.Point(0, -35);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(359, 303);
+			this.listView1.Size = new System.Drawing.Size(609, 303);
 			this.listView1.TabIndex = 14;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
@@ -264,7 +266,7 @@ namespace LogScrobbler
 			this.checkBox2.BackColor = System.Drawing.Color.Transparent;
 			this.checkBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.checkBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.checkBox2.Location = new System.Drawing.Point(61, 105);
+			this.checkBox2.Location = new System.Drawing.Point(279, 24);
 			this.checkBox2.Name = "checkBox2";
 			this.checkBox2.Size = new System.Drawing.Size(209, 24);
 			this.checkBox2.TabIndex = 15;
@@ -275,14 +277,14 @@ namespace LogScrobbler
 			// 
 			this.progressBar1.Location = new System.Drawing.Point(10, 210);
 			this.progressBar1.Name = "progressBar1";
-			this.progressBar1.Size = new System.Drawing.Size(335, 23);
+			this.progressBar1.Size = new System.Drawing.Size(585, 23);
 			this.progressBar1.TabIndex = 16;
 			// 
 			// button5
 			// 
-			this.button5.Location = new System.Drawing.Point(202, 239);
+			this.button5.Location = new System.Drawing.Point(206, 239);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(143, 23);
+			this.button5.Size = new System.Drawing.Size(190, 23);
 			this.button5.TabIndex = 17;
 			this.button5.Text = "Shift After Last Played";
 			this.button5.UseVisualStyleBackColor = true;
@@ -292,7 +294,7 @@ namespace LogScrobbler
 			// 
 			this.button6.Location = new System.Drawing.Point(10, 239);
 			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(186, 23);
+			this.button6.Size = new System.Drawing.Size(190, 23);
 			this.button6.TabIndex = 18;
 			this.button6.Text = "Show My Last Posts To Last.Fm";
 			this.button6.UseVisualStyleBackColor = true;
@@ -300,7 +302,7 @@ namespace LogScrobbler
 			// 
 			// button7
 			// 
-			this.button7.Location = new System.Drawing.Point(219, 94);
+			this.button7.Location = new System.Drawing.Point(279, 91);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(126, 23);
 			this.button7.TabIndex = 19;
@@ -312,7 +314,7 @@ namespace LogScrobbler
 			// 
 			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button8.ForeColor = System.Drawing.Color.Gray;
-			this.button8.Location = new System.Drawing.Point(334, 12);
+			this.button8.Location = new System.Drawing.Point(574, 6);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(21, 32);
 			this.button8.TabIndex = 20;
@@ -323,7 +325,7 @@ namespace LogScrobbler
 			// 
 			this.checkBox3.BackColor = System.Drawing.Color.Transparent;
 			this.checkBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.checkBox3.Location = new System.Drawing.Point(61, 123);
+			this.checkBox3.Location = new System.Drawing.Point(279, 42);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(209, 24);
 			this.checkBox3.TabIndex = 21;
@@ -333,9 +335,9 @@ namespace LogScrobbler
 			// pictureBox1
 			// 
 			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox1.Location = new System.Drawing.Point(279, 12);
+			this.pictureBox1.Location = new System.Drawing.Point(471, 6);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(49, 70);
+			this.pictureBox1.Size = new System.Drawing.Size(97, 124);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 22;
 			this.pictureBox1.TabStop = false;
@@ -347,7 +349,7 @@ namespace LogScrobbler
 			this.checkBox4.Checked = true;
 			this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.checkBox4.Location = new System.Drawing.Point(61, 140);
+			this.checkBox4.Location = new System.Drawing.Point(279, 59);
 			this.checkBox4.Name = "checkBox4";
 			this.checkBox4.Size = new System.Drawing.Size(186, 24);
 			this.checkBox4.TabIndex = 23;
@@ -367,14 +369,57 @@ namespace LogScrobbler
 			this.checkBox5.Text = "Save";
 			this.checkBox5.UseVisualStyleBackColor = false;
 			// 
+			// comboBox1
+			// 
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Items.AddRange(new object[] {
+									" 0 England, Ireland, Portugal",
+									"+1 Europe: France, Spain, Germany, Poland, etc.",
+									"+2 Central Europe: Turkey, Greece, Finland, etc.",
+									"+3 Moscow, Saudi Arabia",
+									"+4 Oman",
+									"+5 Pakistan",
+									"+6 India",
+									"+7 Indonesia",
+									"+8 China, Phillipines, Malaysia, West Australia",
+									"+9 Japan",
+									"+10 East Australia",
+									"+11 Solomon islands, Micronesia",
+									"+12 Marshall Islands, Fiji",
+									"-11 Samoa, Midway",
+									"-10 Hawaii, French Polynesia, Cook island",
+									"-9 Alaska",
+									"-8 US Pacific",
+									"-7 US Mountain",
+									"-6 US Central",
+									"-5 US Eastern",
+									"-4 New Foundland, Venezuela, Chile",
+									"-3 Brazil, Argentina, Greenland",
+									"-2 Mid-Atlantic",
+									"-1 Azores, Cape Verda Is."});
+			this.comboBox1.Location = new System.Drawing.Point(61, 93);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(152, 21);
+			this.comboBox1.TabIndex = 25;
+			this.comboBox1.Text = "-8 US Pacific";
+			// 
+			// label5
+			// 
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label5.Location = new System.Drawing.Point(5, 96);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(57, 23);
+			this.label5.TabIndex = 26;
+			this.label5.Text = "Timezone:";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-			this.ClientSize = new System.Drawing.Size(359, 268);
-			this.Controls.Add(this.checkBox5);
+			this.ClientSize = new System.Drawing.Size(609, 268);
 			this.Controls.Add(this.checkBox4);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.button8);
@@ -398,18 +443,23 @@ namespace LogScrobbler
 			this.Controls.Add(this.checkBox3);
 			this.Controls.Add(this.linkLabel1);
 			this.Controls.Add(this.checkBox2);
+			this.Controls.Add(this.checkBox5);
+			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.label5);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.12b";
+			this.Text = "LogScrobbler 0.13";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1FormClosed);
 			this.Load += new System.EventHandler(this.Form1Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.CheckBox checkBox5;
 		private System.Windows.Forms.CheckBox checkBox4;
 		private System.Windows.Forms.PictureBox pictureBox1;

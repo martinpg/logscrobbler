@@ -10,6 +10,9 @@ Email with any suggestions or feedback.
 ============================================
 
 Changelog:
+0.13
+x Fixed some bugs with settings path
+
 0.12c
 x fixed bug - if items are unchecked do not include them in the time shift.
 + added row colors, and unselected turn gray.
