@@ -26,6 +26,7 @@ namespace LogScrobbler
 	public partial class Form1
 	{
 		public string swColor;
+		public string myDir = Directory.GetCurrentDirectory();
 		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 		public Form1()
 		{
@@ -33,7 +34,7 @@ namespace LogScrobbler
 			InitializeComponent();
 			try{
 
-				StreamReader sett = new StreamReader("LogScrobbler.txt");
+				StreamReader sett = new StreamReader(myDir + "\\LogScrobbler.txt");
 				string setting;
 				string[] fields;
 				int count = 0;
@@ -95,7 +96,6 @@ namespace LogScrobbler
 			if(checkBox4.Checked == true){
 				getMyImage();
 			}
-			
 		}
 
 		void getMyImage()
@@ -235,7 +235,7 @@ namespace LogScrobbler
 		
 
 		void saveSettings(){
-			StreamWriter sw = new StreamWriter("LogScrobbler.txt");
+			StreamWriter sw = new StreamWriter(myDir + "\\LogScrobbler.txt");
 			sw.Write("Username=" + textBox2.Text.ToString());
 			sw.Write("\r\n");
 			if(checkBox5.Checked == true) {
@@ -358,14 +358,14 @@ namespace LogScrobbler
 		
 		void Button4Click(object sender, System.EventArgs e)
 		{
-			this.Size = new System.Drawing.Size(365, 300);
+			this.Size = new System.Drawing.Size(615, 300);
 			listView1.Visible = false;
 		}
 
 		
 		void Button6Click(object sender, System.EventArgs e)
 		{
-			MyLastTen lastTen = new MyLastTen();
+			MyLastTen lastTen = new MyLastTen(myDir);
 			lastTen.ShowDialog();
 		}
 		

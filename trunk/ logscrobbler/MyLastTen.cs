@@ -25,16 +25,18 @@ namespace LogScrobbler
 		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 		public string myuser;
 		public string swColor;
-		public MyLastTen()
+		public string myDir;
+		
+		public MyLastTen(string dir)
 		{
 			
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			myDir = dir;
 			GatherUser();
 			getMyLastTen();
-			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
@@ -42,8 +44,7 @@ namespace LogScrobbler
 		
 		public void GatherUser(){
 			try{
-				
-				StreamReader sett = new StreamReader("LogScrobbler.txt");
+				StreamReader sett = new StreamReader(myDir + "\\LogScrobbler.txt");
 				string setting;
 				string[] fields;
 				int count = 0;
