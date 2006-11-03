@@ -15,11 +15,11 @@ x Fixed some bugs with settings path.
 + (Adding timezone support Not done).
 o widened the form as its starting to get crowded.
 
-0.12c
+0.12c (REV 54)
 x fixed bug - if items are unchecked do not include them in the time shift.
 + added row colors, and unselected turn gray.
 
-0.12
+0.12 (REV 50)
 + Settings file LogScrobbler.txt should now be in app directory(not C: Let me know if this blows up)
 + Added Save password checkbox(I will encrypt soon I swear) :-)
 + Added checkbox to display Avatar or not(Runs faster off, but funner on)
