@@ -10,8 +10,10 @@ Email with any suggestions or feedback.
 ============================================
 
 Changelog:
-0.13
-x Fixed some bugs with settings path
+0.13(Pre)
+x Fixed some bugs with settings path.
++ (Adding timezone support Not done).
+o widened the form as its starting to get crowded.
 
 0.12c
 x fixed bug - if items are unchecked do not include them in the time shift.
