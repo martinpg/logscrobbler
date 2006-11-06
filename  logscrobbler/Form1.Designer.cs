@@ -36,6 +36,7 @@ namespace LogScrobbler
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.button1 = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -69,6 +70,9 @@ namespace LogScrobbler
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.button9 = new System.Windows.Forms.Button();
+			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -226,9 +230,9 @@ namespace LogScrobbler
 									this.columnHeader5});
 			this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.listView1.FullRowSelect = true;
-			this.listView1.Location = new System.Drawing.Point(0, -35);
+			this.listView1.Location = new System.Drawing.Point(0, -32);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(609, 303);
+			this.listView1.Size = new System.Drawing.Size(609, 300);
 			this.listView1.TabIndex = 14;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
@@ -302,7 +306,7 @@ namespace LogScrobbler
 			// 
 			// button7
 			// 
-			this.button7.Location = new System.Drawing.Point(279, 91);
+			this.button7.Location = new System.Drawing.Point(279, 102);
 			this.button7.Name = "button7";
 			this.button7.Size = new System.Drawing.Size(126, 23);
 			this.button7.TabIndex = 19;
@@ -403,6 +407,7 @@ namespace LogScrobbler
 			this.comboBox1.Size = new System.Drawing.Size(152, 21);
 			this.comboBox1.TabIndex = 25;
 			this.comboBox1.Text = "-8 US Pacific";
+			this.comboBox1.Visible = false;
 			// 
 			// label5
 			// 
@@ -413,6 +418,29 @@ namespace LogScrobbler
 			this.label5.Size = new System.Drawing.Size(57, 23);
 			this.label5.TabIndex = 26;
 			this.label5.Text = "Timezone:";
+			this.label5.Visible = false;
+			// 
+			// button9
+			// 
+			this.button9.Location = new System.Drawing.Point(402, 239);
+			this.button9.Name = "button9";
+			this.button9.Size = new System.Drawing.Size(193, 23);
+			this.button9.TabIndex = 27;
+			this.button9.Text = "Fix Zero Time Stamps";
+			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
+			// 
+			// checkBox6
+			// 
+			this.checkBox6.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.checkBox6.Location = new System.Drawing.Point(279, 77);
+			this.checkBox6.Name = "checkBox6";
+			this.checkBox6.Size = new System.Drawing.Size(135, 24);
+			this.checkBox6.TabIndex = 28;
+			this.checkBox6.Text = "Ignore time stamps";
+			this.toolTip1.SetToolTip(this.checkBox6, "This will auto fix zero time stamps");
+			this.checkBox6.UseVisualStyleBackColor = false;
 			// 
 			// Form1
 			// 
@@ -421,6 +449,8 @@ namespace LogScrobbler
 			this.BackColor = System.Drawing.SystemColors.Control;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(609, 268);
+			this.Controls.Add(this.checkBox6);
+			this.Controls.Add(this.button9);
 			this.Controls.Add(this.checkBox4);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.button8);
@@ -452,13 +482,16 @@ namespace LogScrobbler
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.Text = "LogScrobbler 0.13";
+			this.Text = "LogScrobbler 0.14";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1FormClosed);
 			this.Load += new System.EventHandler(this.Form1Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.CheckBox checkBox6;
+		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.CheckBox checkBox5;

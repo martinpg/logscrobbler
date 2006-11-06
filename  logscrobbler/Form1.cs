@@ -68,6 +68,9 @@ namespace LogScrobbler
 					if(count == 8) {
 						checkBox5.Checked = Convert.ToBoolean(fields[1]);
 					}
+					if(count == 9) {
+						checkBox6.Checked = Convert.ToBoolean(fields[1]);
+					}
 					count++;
 
 					
@@ -186,6 +189,9 @@ namespace LogScrobbler
 			int countChecked =0;
 			try
 			{
+				if(checkBox6.Checked == true) {
+					zeroStamps();
+				}
 				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
 				{
 					countChecked++;
@@ -257,6 +263,8 @@ namespace LogScrobbler
 			sw.Write("ShowAvatar=" + checkBox4.Checked.ToString());
 			sw.Write("\r\n");
 			sw.Write("SavePass=" + checkBox5.Checked.ToString());
+			sw.Write("\r\n");
+			sw.Write("IgnoreStamps=" + checkBox6.Checked.ToString());
 			sw.Close();
 		}
 		
@@ -476,6 +484,44 @@ namespace LogScrobbler
 					itemRow.ForeColor = System.Drawing.Color.DarkGreen;
 				}
 			}
+		}
+		
+		void Button9Click(object sender, System.EventArgs e)
+		{
+			zeroStamps();
+		}
+		
+		public void zeroStamps()
+		{
+			try
+			{
+				int total=0;
+				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+				{
+					string [] mins = new string[2];
+					char[] splitter  = {':'};
+					mins = itemRow.SubItems[3].Text.Split(splitter);
+					total = (Convert.ToInt32(mins[0]) * 60 + Convert.ToInt32(mins[1])) + total;
+				}
+				DateTime listtime = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(DateTime.Now.ToUniversalTime().ToString()));
+				listtime = listtime.AddSeconds(-1*total);
+				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
+				{
+					string [] mins = new string[2];
+					char[] splitter  = {':'};
+					mins = itemRow.SubItems[3].Text.Split(splitter);
+					int fixtime = (Convert.ToInt32(mins[0]) * 60 + Convert.ToInt32(mins[1]));
+					itemRow.SubItems[4].Text = listtime.Year + "-" + listtime.Month + "-" + listtime.Day + " " + listtime.TimeOfDay;
+					listtime = listtime.AddSeconds(fixtime);
+					
+				}
+				
+			}
+			catch
+			{
+				
+			}
+			
 		}
 	}
 

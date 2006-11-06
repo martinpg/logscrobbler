@@ -10,10 +10,13 @@ Email with any suggestions or feedback.
 ============================================
 
 Changelog:
-0.13(Pre)
+0.14 (REV 57)
 x Fixed some bugs with settings path.
-+ (Adding timezone support Not done).
++ Added "Fix zero time stamps" as a one-time use button, or permanent setting(this option should help those who have players that do not time stamp the played tracks(no internal clock) this adds up the length of all the checked items, then subtracts the total from the current time and fits all the tracks up to the current time. (hope that make sense :-)).
 o widened the form as its starting to get crowded.
+
+0.13 (REV 56)
+Don't ask, even the version number was bad.
 
 0.12c (REV 54)
 x fixed bug - if items are unchecked do not include them in the time shift.
