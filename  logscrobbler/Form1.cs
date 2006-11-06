@@ -504,15 +504,15 @@ namespace LogScrobbler
 					total = (Convert.ToInt32(mins[0]) * 60 + Convert.ToInt32(mins[1])) + total;
 				}
 				DateTime listtime = (DateTime)(TypeDescriptor.GetConverter(new DateTime(1990,5,6)).ConvertFrom(DateTime.Now.ToUniversalTime().ToString()));
-				listtime = listtime.AddSeconds(-1*total);
 				foreach (System.Windows.Forms.ListViewItem itemRow in listView1.CheckedItems)
 				{
 					string [] mins = new string[2];
 					char[] splitter  = {':'};
 					mins = itemRow.SubItems[3].Text.Split(splitter);
 					int fixtime = (Convert.ToInt32(mins[0]) * 60 + Convert.ToInt32(mins[1]));
+					listtime = listtime.AddSeconds(-1*fixtime);
 					itemRow.SubItems[4].Text = listtime.Year + "-" + listtime.Month + "-" + listtime.Day + " " + listtime.TimeOfDay;
-					listtime = listtime.AddSeconds(fixtime);
+					
 					
 				}
 				
