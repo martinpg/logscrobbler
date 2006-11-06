@@ -10,6 +10,9 @@ Email with any suggestions or feedback.
 ============================================
 
 Changelog:
+0.14c
+x Fixed exception when opening window from tray with select files left open.
+
 0.14 (REV 57)
 x Fixed some bugs with settings path.
 + Added "Fix zero time stamps" as a one-time use button, or permanent setting(this option should help those who have players that do not time stamp the played tracks(no internal clock) this adds up the length of all the checked items, then subtracts the total from the current time and fits all the tracks up to the current time. (hope that make sense :-)).
