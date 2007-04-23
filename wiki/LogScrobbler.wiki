@@ -7,6 +7,7 @@ http://logscrobbler.googlecode.com/files/LogScrobbler-0.14c.zip
 
 
 Changelog:
+
 0.14c(Dec 2006)
 x Fixed exception when opening window from tray with select files left open.
 
@@ -68,4 +69,3 @@ Don't remember all the items - started this file at 0.6 :-(
 + added about window
 + Delete file after processing option
 + Save settings
-
