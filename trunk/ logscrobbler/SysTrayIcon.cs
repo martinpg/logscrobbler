@@ -19,7 +19,7 @@ namespace LogScrobbler
 	public sealed class SysTrayIcon
 	{
 		public string myuser;
-		Form1 form = new Form1();
+		MainForm form = new MainForm();
 		About aboutform = new About();
 		private System.Windows.Forms.NotifyIcon trayIcon;
 		private System.Windows.Forms.ContextMenu sysTrayMenu;
@@ -67,13 +67,16 @@ namespace LogScrobbler
 			
 			bool isFirstInstance;
 			// Please use a unique name for the mutex to prevent conflicts with other programs
-			using (Mutex mtx = new Mutex(true, "LogScrobbler", out isFirstInstance)) {
-				if (isFirstInstance) {
+			using (Mutex mtx = new Mutex(true, "LogScrobbler", out isFirstInstance))
+			{
+				if (isFirstInstance)
+				{
 					SysTrayIcon sysTrayIcon = new SysTrayIcon();
 					sysTrayIcon.trayIcon.Visible = true;
 					Application.Run();
 					sysTrayIcon.trayIcon.Dispose();
-				} else {
+				}
+				else {
 					// The application is already running
 					
 				}
@@ -92,9 +95,10 @@ namespace LogScrobbler
 			Application.Exit();
 		}
 		
-		public void GatherUser(){
-			try{
-
+		public void GatherUser()
+		{
+			try
+			{
 				StreamReader sett = new StreamReader("LogScrobbler.txt");
 				string setting;
 				string[] fields;
@@ -108,8 +112,6 @@ namespace LogScrobbler
 					count++;
 				}
 				sett.Close();
-				
-				
 			}
 			catch
 			{
@@ -120,11 +122,8 @@ namespace LogScrobbler
 		
 		private void menuLastClick(object sender, EventArgs e)
 		{
-
 			ProcessStartInfo sInfo = new ProcessStartInfo("http://www.last.fm/user/"+myuser);
 			Process.Start(sInfo);
-
-			
 		}
 		
 

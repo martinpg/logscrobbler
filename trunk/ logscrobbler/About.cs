@@ -8,6 +8,7 @@
  */
 
 using System;
+using System.Reflection;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -19,43 +20,54 @@ namespace LogScrobbler
 	/// </summary>
 	public partial class About
 	{
+		#region Constructors
+
 		public About()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 
+			Type type = Type.GetType("LogScrobbler.MainForm");
+			Assembly assembly = Assembly.GetAssembly(type);
+			AssemblyName assemblyName = assembly.GetName();
+			Version version = assemblyName.Version;
+			lblVersion.Text = version.ToString();
 		}
-		
-		void Button1Click(object sender, System.EventArgs e)
+
+		#endregion
+
+		#region Event Handlers
+
+		void About_Load(object sender, System.EventArgs e)
+		{
+			string projectLink = "http://code.google.com/p/logscrobbler/";
+			string lastFmLink = "http://www.last.fm/user/kernelsandirs";
+
+			lnkProject.Links.Clear();
+			lnkProject.Links.Add(0, projectLink.Length, projectLink);
+			lnkLastFm.Links.Clear();
+			lnkLastFm.Links.Add(0, lastFmLink.Length, lastFmLink);
+		}
+
+		void btnClose_Click(object sender, System.EventArgs e)
 		{
 			Close();
 		}
 		
-		void LinkLabel2LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+		void lnkProject_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
 		{
 			ProcessStartInfo sInfo = new ProcessStartInfo(e.Link.LinkData.ToString());  
        		Process.Start(sInfo);
 		}
-		
-		
-		void AboutLoad(object sender, System.EventArgs e)
-		{
-			linkLabel2.Links.Remove(linkLabel2.Links[0]);
-        	linkLabel2.Links.Add(0, linkLabel2.Text.Length, "http://www.watchmefreak.com/");
-        	linkLabel1.Links.Remove(linkLabel1.Links[0]);
-        	linkLabel1.Links.Add(0, linkLabel1.Text.Length, "http://www.last.fm/user/kernelsandirs");
-		}
-		
-		void LinkLabel1LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+				
+		void lnkLastFm_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
 		{
 			ProcessStartInfo sInfo = new ProcessStartInfo(e.Link.LinkData.ToString());  
        		Process.Start(sInfo);
 		}
+
+		#endregion
 	}
 }
