@@ -172,7 +172,7 @@ namespace LogScrobbler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.BackgroundImage = global::LogScrobbler.Properties.Resources.bg;
 			this.CancelButton = this.btnClose;
 			this.ClientSize = new System.Drawing.Size(304, 185);
 			this.Controls.Add(this.lnkLastFm);
