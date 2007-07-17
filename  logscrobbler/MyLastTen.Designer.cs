@@ -46,6 +46,7 @@ namespace LogScrobbler
 			// 
 			// lstLastTenTracks
 			// 
+			this.lstLastTenTracks.BackColor = System.Drawing.SystemColors.Control;
 			this.lstLastTenTracks.BackgroundImage = global::LogScrobbler.Properties.Resources.bg;
 			this.lstLastTenTracks.BackgroundImageTiled = true;
 			this.lstLastTenTracks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
