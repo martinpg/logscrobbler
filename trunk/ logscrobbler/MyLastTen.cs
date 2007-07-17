@@ -34,7 +34,6 @@ namespace LogScrobbler
 			InitializeComponent();
 
 			this.userName = userName;
-			lstLastTenTracks.BackgroundImage = (System.Drawing.Bitmap)resources.GetObject("$this.BackgroundImage");
 		}
 		
 		public void getMyLastTen()
