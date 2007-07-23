@@ -1,5 +1,5 @@
 #labels LogScrobbler,AudioScrobbler,Last.fm,Rockbox
-*LogScrobbler* is a Windows utility I wrote to allow users of Portable Digital Audio Players, that are running Rockbox or other firmware that generates a log file that stores which songs you have played, to later be synchronized to last.fm using my LogScrobbler Tool.
+*LogScrobbler* is a Windows utility written to allow users of Portable Digital Audio Players, that are running Rockbox or other firmware that generates a log file that stores which songs you have played, to later be synchronized to last.fm using my LogScrobbler Tool.
 
 It can be downloaded from here (Requires .NET Framework 2.0)
 http://logscrobbler.googlecode.com/files/LogScrobbler-0.14c.zip
@@ -74,5 +74,4 @@ http://logscrobbler.googlecode.com/files/LogScrobbler-0.14c.zip
   * added about window
   * Delete file after processing option
   * Save settings
-
 
